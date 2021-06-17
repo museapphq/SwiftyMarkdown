@@ -24,36 +24,36 @@ extension SwiftyMarkdown {
 		let style : FontProperties
 		// What type are we and is there a font name set?
 		switch line.lineStyle as! MarkdownLineStyle {
-		case .h1:
-			style = self.h1
-			if #available(iOS 9, *) {
-				textStyle = UIFont.TextStyle.title1
-			} else {
-				textStyle = UIFont.TextStyle.headline
-			}
-		case .h2:
-			style = self.h2
-			if #available(iOS 9, *) {
-				textStyle = UIFont.TextStyle.title2
-			} else {
-				textStyle = UIFont.TextStyle.headline
-			}
-		case .h3:
-			style = self.h3
-			if #available(iOS 9, *) {
-				textStyle = UIFont.TextStyle.title2
-			} else {
-				textStyle = UIFont.TextStyle.subheadline
-			}
-		case .h4:
-			style = self.h4
-			textStyle = UIFont.TextStyle.headline
-		case .h5:
-			style = self.h5
-			textStyle = UIFont.TextStyle.subheadline
-		case .h6:
-			style = self.h6
-			textStyle = UIFont.TextStyle.footnote
+//		case .h1:
+//			style = self.h1
+//			if #available(iOS 9, *) {
+//				textStyle = UIFont.TextStyle.title1
+//			} else {
+//				textStyle = UIFont.TextStyle.headline
+//			}
+//		case .h2:
+//			style = self.h2
+//			if #available(iOS 9, *) {
+//				textStyle = UIFont.TextStyle.title2
+//			} else {
+//				textStyle = UIFont.TextStyle.headline
+//			}
+//		case .h3:
+//			style = self.h3
+//			if #available(iOS 9, *) {
+//				textStyle = UIFont.TextStyle.title2
+//			} else {
+//				textStyle = UIFont.TextStyle.subheadline
+//			}
+//		case .h4:
+//			style = self.h4
+//			textStyle = UIFont.TextStyle.headline
+//		case .h5:
+//			style = self.h5
+//			textStyle = UIFont.TextStyle.subheadline
+//		case .h6:
+//			style = self.h6
+//			textStyle = UIFont.TextStyle.footnote
 		case .codeblock:
 			style = self.code
 			textStyle = UIFont.TextStyle.body
@@ -145,18 +145,18 @@ extension SwiftyMarkdown {
 		switch line.lineStyle as! MarkdownLineStyle {
 		case .yaml:
 			return body.color
-		case .h1, .previousH1:
-			return h1.color
-		case .h2, .previousH2:
-			return h2.color
-		case .h3:
-			return h3.color
-		case .h4:
-			return h4.color
-		case .h5:
-			return h5.color
-		case .h6:
-			return h6.color
+//		case .h1, .previousH1:
+//			return h1.color
+//		case .h2, .previousH2:
+//			return h2.color
+//		case .h3:
+//			return h3.color
+//		case .h4:
+//			return h4.color
+//		case .h5:
+//			return h5.color
+//		case .h6:
+//			return h6.color
 		case .body:
 			return body.color
 		case .codeblock:

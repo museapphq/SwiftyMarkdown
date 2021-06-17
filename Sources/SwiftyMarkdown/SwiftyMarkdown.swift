@@ -47,14 +47,14 @@ enum MarkdownLineStyle : LineStyling {
         
     }
     case yaml
-    case h1
-    case h2
-    case h3
-    case h4
-    case h5
-    case h6
-    case previousH1
-    case previousH2
+//    case h1
+//    case h2
+//    case h3
+//    case h4
+//    case h5
+//    case h6
+//    case previousH1
+//    case previousH2
     case body
     case blockquote
     case codeblock
@@ -68,10 +68,10 @@ enum MarkdownLineStyle : LineStyling {
 	
     func styleIfFoundStyleAffectsPreviousLine() -> LineStyling? {
         switch self {
-        case .previousH1:
-            return MarkdownLineStyle.h1
-        case .previousH2:
-            return MarkdownLineStyle.h2
+//        case .previousH1:
+//            return MarkdownLineStyle.h1
+//        case .previousH2:
+//            return MarkdownLineStyle.h2
         default :
             return nil
         }
@@ -156,8 +156,8 @@ If that is not set, then the system default will be used.
 	]
 	
 	static public var lineRules = [
-		LineRule(token: "=", type: MarkdownLineStyle.previousH1, removeFrom: .entireLine, changeAppliesTo: .previous),
-		LineRule(token: "-", type: MarkdownLineStyle.previousH2, removeFrom: .entireLine, changeAppliesTo: .previous),
+//		LineRule(token: "=", type: MarkdownLineStyle.previousH1, removeFrom: .entireLine, changeAppliesTo: .previous),
+//		LineRule(token: "-", type: MarkdownLineStyle.previousH2, removeFrom: .entireLine, changeAppliesTo: .previous),
 		LineRule(token: "\t\t- ", type: MarkdownLineStyle.unorderedListIndentSecondOrder, removeFrom: .leading, shouldTrim: false),
 		LineRule(token: "\t- ", type: MarkdownLineStyle.unorderedListIndentFirstOrder, removeFrom: .leading, shouldTrim: false),
 		LineRule(token: "- ",type : MarkdownLineStyle.unorderedList, removeFrom: .leading),
@@ -170,12 +170,12 @@ If that is not set, then the system default will be used.
 		LineRule(token: "    ", type: MarkdownLineStyle.codeblock, removeFrom: .leading, shouldTrim: false),
 		LineRule(token: "\t", type: MarkdownLineStyle.codeblock, removeFrom: .leading, shouldTrim: false),
 		LineRule(token: ">",type : MarkdownLineStyle.blockquote, removeFrom: .leading),
-		LineRule(token: "###### ",type : MarkdownLineStyle.h6, removeFrom: .both),
-		LineRule(token: "##### ",type : MarkdownLineStyle.h5, removeFrom: .both),
-		LineRule(token: "#### ",type : MarkdownLineStyle.h4, removeFrom: .both),
-		LineRule(token: "### ",type : MarkdownLineStyle.h3, removeFrom: .both),
-		LineRule(token: "## ",type : MarkdownLineStyle.h2, removeFrom: .both),
-		LineRule(token: "# ",type : MarkdownLineStyle.h1, removeFrom: .both)
+//		LineRule(token: "###### ",type : MarkdownLineStyle.h6, removeFrom: .both),
+//		LineRule(token: "##### ",type : MarkdownLineStyle.h5, removeFrom: .both),
+//		LineRule(token: "#### ",type : MarkdownLineStyle.h4, removeFrom: .both),
+//		LineRule(token: "### ",type : MarkdownLineStyle.h3, removeFrom: .both),
+//		LineRule(token: "## ",type : MarkdownLineStyle.h2, removeFrom: .both),
+//		LineRule(token: "# ",type : MarkdownLineStyle.h1, removeFrom: .both)
 	]
 	
 	static public var characterRules = [
@@ -318,12 +318,12 @@ If that is not set, then the system default will be used.
 	- parameter size: size of font
 	*/
 	open func setFontSizeForAllStyles(with size: CGFloat) {
-		h1.fontSize = size
-		h2.fontSize = size
-		h3.fontSize = size
-		h4.fontSize = size
-		h5.fontSize = size
-		h6.fontSize = size
+//		h1.fontSize = size
+//		h2.fontSize = size
+//		h3.fontSize = size
+//		h4.fontSize = size
+//		h5.fontSize = size
+//		h6.fontSize = size
 		body.fontSize = size
 		italic.fontSize = size
 		bold.fontSize = size
@@ -335,12 +335,12 @@ If that is not set, then the system default will be used.
 	
 	#if os(macOS)
 	open func setFontColorForAllStyles(with color: NSColor) {
-		h1.color = color
-		h2.color = color
-		h3.color = color
-		h4.color = color
-		h5.color = color
-		h6.color = color
+//		h1.color = color
+//		h2.color = color
+//		h3.color = color
+//		h4.color = color
+//		h5.color = color
+//		h6.color = color
 		body.color = color
 		italic.color = color
 		bold.color = color
@@ -351,12 +351,12 @@ If that is not set, then the system default will be used.
 	}
 	#else
 	open func setFontColorForAllStyles(with color: UIColor) {
-		h1.color = color
-		h2.color = color
-		h3.color = color
-		h4.color = color
-		h5.color = color
-		h6.color = color
+//		h1.color = color
+//		h2.color = color
+//		h3.color = color
+//		h4.color = color
+//		h5.color = color
+//		h6.color = color
 		body.color = color
 		italic.color = color
 		bold.color = color
@@ -368,12 +368,12 @@ If that is not set, then the system default will be used.
 	#endif
 	
 	open func setFontNameForAllStyles(with name: String) {
-		h1.fontName = name
-		h2.fontName = name
-		h3.fontName = name
-		h4.fontName = name
-		h5.fontName = name
-		h6.fontName = name
+//		h1.fontName = name
+//		h2.fontName = name
+//		h3.fontName = name
+//		h4.fontName = name
+//		h5.fontName = name
+//		h6.fontName = name
 		body.fontName = name
 		italic.fontName = name
 		bold.fontName = name
@@ -481,18 +481,18 @@ extension SwiftyMarkdown {
 
 		let lineProperties : LineProperties
 		switch markdownLineStyle {
-		case .h1:
-			lineProperties = self.h1
-		case .h2:
-			lineProperties = self.h2
-		case .h3:
-			lineProperties = self.h3
-		case .h4:
-			lineProperties = self.h4
-		case .h5:
-			lineProperties = self.h5
-		case .h6:
-			lineProperties = self.h6
+//		case .h1:
+//			lineProperties = self.h1
+//		case .h2:
+//			lineProperties = self.h2
+//		case .h3:
+//			lineProperties = self.h3
+//		case .h4:
+//			lineProperties = self.h4
+//		case .h5:
+//			lineProperties = self.h5
+//		case .h6:
+//			lineProperties = self.h6
 		case .codeblock:
 			lineProperties = body
 			let paragraphStyle = NSMutableParagraphStyle()
@@ -532,10 +532,10 @@ extension SwiftyMarkdown {
 			
 		case .yaml:
 			lineProperties = body
-		case .previousH1:
-			lineProperties = body
-		case .previousH2:
-			lineProperties = body
+//		case .previousH1:
+//			lineProperties = body
+//		case .previousH2:
+//			lineProperties = body
 		case .body:
 			lineProperties = body
 		case .referencedLink:
